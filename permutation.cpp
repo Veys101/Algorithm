@@ -3,10 +3,9 @@
 
 using namespace std;
 
-int main () {
+int main (int argc, char** argv) {
 	
-	
-	char numbers[5] = "1234";
+	char *numbers = argv[1];
 	char initialPermutation[24][5] = {"", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", ""};
 	char lastPermutation[24][5] = {"", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", ""};
 	char stack[5] = "";
@@ -15,7 +14,7 @@ int main () {
 	
 	initialPermutation[0][0] = numbers[0];
 	
-	for (int i=1; i < sizeof(numbers)-1; i++) { 
+	for (int i=1; i < strlen(numbers); i++) { 
 		
 		int index = 0;
 		for (int j = 0; j < len; j++) { 
