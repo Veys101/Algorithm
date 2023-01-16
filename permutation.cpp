@@ -58,7 +58,7 @@ int main (int argc, char** argv) {
 		
 		for(int j = 0; j < len; j++) {
 			memset(lastPermutation[j], '\0', sizeof(lastPermutation[j]));
-			stack[sizeof(lastPermutation[j])]='\0';
+			lastPermutation[j][sizeof(lastPermutation[j])]='\0';
 		}
 	}
 	
