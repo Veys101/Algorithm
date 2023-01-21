@@ -53,6 +53,8 @@ int main (int argc, char** argv) {
 	initializeArray(initialPermutation, lastPermutation, lenP, strlen(numbers));
 	
 	initialPermutation[0][0] = numbers[0];
+	
+	int a = 0;
 		
 	for (int i=1; i < strlen(numbers); i++) { 
 		
@@ -65,21 +67,23 @@ int main (int argc, char** argv) {
 				
 				for (int l = 0; l < k; l++) { 
 					stack[l] = initialPermutation[j][l];
+					a++;
 				}
 				
 				stack[k] = numbers[i];
 								
 				for (int m = k+1; m < strlen(initialPermutation[j]) + 1; m++) {  
 					stack[m] = initialPermutation[j][m-1];
+					a++;
 				}
 			
 				for(int n = 0; n<strlen(stack); n++) {
 					lastPermutation[index][n] = stack[n];
+					a++;
 				}
 				
 				index++;			
 				fillEmpty(stack, strlen(numbers));
-			
 			}		
 		
 		}
@@ -101,5 +105,8 @@ int main (int argc, char** argv) {
 	for (int i = 0; i < lenP; i++) {
 		cout << initialPermutation[i] << endl;
 	}
+	
+	cout << "Number of loop for " << strlen(numbers) << " permutation : " << a << endl;
+
 
 }
