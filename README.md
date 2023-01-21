@@ -2,6 +2,6 @@
 This repositories involves algorithm practices.
 
 ### Permutation Algorithms
-  - Insert Algorithm (permutation.cpp)
+  - Insert Algorithm
   - Heaps Algorithm
   - Johnson Trotter Algorithm
