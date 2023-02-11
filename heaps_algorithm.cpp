@@ -3,18 +3,18 @@
 
 using namespace std;
 
-void fillEmpty (char* array, int len) {
-	memset(array, '\0', len);
-	array[len]='\0';
+void fillEmpty (char* input, int len) {
+	memset(input, '\0', len);
+	input[len]='\0';
 }
 
-void initializeArray (char** &array, int lengthArray, int lengthRow) {
+void initializeArray (char** &input, int lengthArray, int lengthRow) {
 	
-	array = new char*[lengthArray];
+	input = new char*[lengthArray];
 	
 	for (int i=0; i<lengthArray; i++) {
-		array[i] = new char [lengthRow]; 
-		fillEmpty(array[i], lengthRow);
+		input[i] = new char [lengthRow]; 
+		fillEmpty(input[i], lengthRow);
 	}
 	
 }
@@ -41,33 +41,33 @@ void swapElements (char* &elements, int i, int j) {
 
 int main(int argc, char** argv) {
 
-	char* array = argv[1];
+	char* input = argv[1];
 	
-	int length = strlen(array);
-	int permutationLength = fact(length);
+	int length = strlen(input);
+	int lenP = fact(length);
 	
 	char** generatedPermutation;
-    initializeArray (generatedPermutation, permutationLength, length);
+    initializeArray (generatedPermutation, lenP, length);
 
 	int c[length] = {0};
 	
 	int i = 0, a=0;
 	int index = 1;
 	
-	for(int k=0; k<length; k++) generatedPermutation[0][k] = array[k];
+	for(int k=0; k<length; k++) generatedPermutation[0][k] = input[k];
 		
 	while (i < length) {
 		
 		if (c[i] < i) {
-			
+						
 			if (i % 2 == 0) {
-				swapElements(array, 0, i);
+				swapElements(input, 0, i);
 			} else {
-				swapElements(array, c[i], i);
+				swapElements(input, c[i], i);
 			}
 
 			for (int j=0; j<length; j++) {
-				generatedPermutation[index][j] = array[j];
+				generatedPermutation[index][j] = input[j];
 				a++;
 			}
 			
@@ -81,8 +81,8 @@ int main(int argc, char** argv) {
 		}	
 				
 	} 
-		
-	for (int k = 0; k < permutationLength; k++) {
+	
+	for (int k = 0; k < lenP; k++) {
 		cout << generatedPermutation[k] << endl;
 	}
 	
